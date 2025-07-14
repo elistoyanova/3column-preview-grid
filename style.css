@@ -1,0 +1,131 @@
+:root {
+  --sedans-color: hsl(31, 77%, 52%);
+  --suvs-color: hsl(184, 100%, 22%);
+  --luxury-color: hsl(179, 100%, 13%);
+
+  --paragraph-color: hsla(0, 0%, 100%, 0.75);
+
+  --gray-color: hsl(0, 0%, 95%);
+
+  --ff-lexend: "Lexend", sans-serif;
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-lexend);
+  font-weight: var(--fw-regular);
+  color: var(--paragraph-color);
+  background-color: var(--gray-color);
+  font-size: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 1200px;
+  overflow: hidden;
+}
+.card:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.card:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.875em 3.5em;
+}
+
+.card h2 {
+  text-transform: uppercase;
+  font-size: 2em;
+  margin-block: 30px;
+}
+
+.card p {
+  font-size: 1.4em;
+  font-weight: var(--fw-regular);
+  margin-bottom: 2em;
+}
+
+.card:nth-of-type(1) {
+  background-color: var(--sedans-color);
+}
+
+.card:nth-of-type(2) {
+  background-color: var(--suvs-color);
+}
+
+.card:nth-of-type(3) {
+  background-color: var(--luxury-color);
+}
+
+.card img {
+  width: 60px;
+}
+
+.learn-more {
+  display: inline-block; /* Prevents full width */
+  border-radius: 20px; /* Adjust as needed */
+  padding: 10px 24px; /* Optional: for button look */
+  border: 2px solid #fff; /* Example border */
+  text-decoration: none; /* Optional: removes underline */
+  align-self: flex-start;
+  font-weight: var(--fw-bold);
+  background-color: var(--gray-color);
+}
+
+.card .learn-more:hover {
+  background-color: transparent;
+  color: #fff; /* Force white on hover */
+  cursor: pointer;
+}
+
+.sedans .learn-more {
+  color: var(--sedans-color);
+}
+
+.suvs .learn-more {
+  color: var(--suvs-color);
+}
+
+.luxury .learn-more {
+  color: var(--luxury-color);
+}
+
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .card {
+    width: 100%;         /* Each card fills container width */
+    min-width: 0;
+    padding: 2em 1em;    /* Less horizontal padding on small screens */
+  }
+}
